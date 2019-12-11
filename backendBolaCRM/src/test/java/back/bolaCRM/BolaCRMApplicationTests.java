@@ -1,4 +1,4 @@
-package edu.br.unifacear.webdev2019;
+package back.bolaCRM;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class Webdev2019ApplicationTests {
+public class BolaCRMApplicationTests {
 
 	@Test
 	public void contextLoads() {
