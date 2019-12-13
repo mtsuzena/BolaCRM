@@ -1,13 +1,19 @@
+
 import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
 declare var $: any;
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent implements OnInit {
+
+  login: string;
+  senha: string;
 
   constructor(
     private router: Router,
@@ -19,13 +25,24 @@ export class LoginComponent implements OnInit {
 
   logar(){
 
-    this.authService.fazerLogin();
+    //console.log(this.loginService.login(this.login,this.senha));
+    // this.loginService.login(this.login,this.senha).subscribe(
+    //   user => {
+    //     localStorage.setItem("token",user['token']);
+    //     localStorage.setItem("id",user['id']);
+        
+        
+        
+    //   }
+    //)
+
+    // this.authService.fazerLogin();
     
-    if(this.authService.usuarioEstaAutenticado){
-      this.router.navigate(['']);
-    }else{
-      this.mostrarNotificacao('bottom', 'lefet');
-    }
+    // if(this.authService.usuarioEstaAutenticado){
+    //   this.router.navigate(['']);
+    // }else{
+    //   this.mostrarNotificacao('bottom', 'lefet');
+    // }
     
   }
 
