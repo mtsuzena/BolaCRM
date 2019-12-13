@@ -1,3 +1,4 @@
+import { AuthService } from './login/auth.service';
 import { LoginComponent } from './login/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -23,6 +24,7 @@ import {
   AgmCoreModule
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { AuthGuard } from './guards/auth-guard';
 
 @NgModule({
   imports: [
@@ -43,7 +45,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     LoginComponent,
 
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
