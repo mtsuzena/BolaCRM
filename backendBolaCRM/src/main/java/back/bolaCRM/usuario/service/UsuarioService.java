@@ -1,12 +1,8 @@
 package back.bolaCRM.usuario.service;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-
-import javax.xml.crypto.Data;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import back.bolaCRM.common.exception.BusinessException;
 import back.bolaCRM.common.exception.BusinessExceptionCode;
+import back.bolaCRM.logger.Logger;
 import back.bolaCRM.usuario.entity.Permissao;
 import back.bolaCRM.usuario.entity.TipoPerfil;
 import back.bolaCRM.usuario.entity.TipoUsuario;
@@ -29,6 +26,7 @@ public class UsuarioService {
 	private UsuarioRepository usuarioRepository;
 	private TipoPerfilRepository tipoperfilrepository;
 	private TipoPerfilService tipoperfilsevice;
+	private Logger logger = new Logger("UsuarioService");
 	
 	@Transactional
 	public void salvar(Usuario usuario) {
@@ -98,6 +96,7 @@ public class UsuarioService {
 
 
 	public List<Usuario> Logar(final String email, final String senha) {
+		this.logger.gerarLog("Realizando login com o email: " + email + " e senha: "+ senha);
 		List<Usuario> usuario = Optional.ofNullable(usuarioRepository.BuscarPorEmaileSenha(email, senha))
 				.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR002));
 		return usuario;

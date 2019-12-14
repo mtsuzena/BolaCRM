@@ -31,7 +31,7 @@
                     <div class="col-12">
                       <div class="form-group">
                         <label class="bmd-label-floating">Usuário</label>
-                        <input type="text" name="usuario" autocomplete="off" required class="form-control">
+                        <input type="text" autocomplete="off" required class="form-control" id="usuario" name="usuario"  [(ngModel)]="usuario">
                       </div>
                     </div>
                   </div>
@@ -39,7 +39,7 @@
                     <div class="col-12">
                       <div class="form-group">
                         <label class="bmd-label-floating">Senha</label>
-                        <input type="password" name="senha" required class="form-control">
+                        <input type="password" required class="form-control" id="senha" name="senha"  [(ngModel)]="senha">
                       </div>
                     </div>
                   </div>
