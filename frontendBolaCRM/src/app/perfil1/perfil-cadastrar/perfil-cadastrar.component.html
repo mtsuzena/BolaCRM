@@ -1,0 +1,50 @@
+<div class=" content">
+  <h4>
+    Cadastrar Usuário
+  </h4>
+  <form id="formPerfil" (ngSubmit)="salvar()">
+    <div class="form-group">
+      <label for="descricao">Descrição</label>
+      <input type="text" class="form-control" name="descricao" [(ngModel)]="perfil.descricao"
+        required>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        Permissões <button type="button" class="btn btn-primary" (click)="adicionarPermissao();">Adicionar</button>
+      </div>
+      <ul class="list-group">
+        <li *ngFor="let permissao of perfil.permissoes;let permissaoIndex = index " class="list-group-item" style="background-color: #525f7f">
+          <div class="row" >
+            <div class="col">
+              <select name="permissao" style="font-style: italic;"  class="form-control" [(value)]="perfil.permissoes[permissaoIndex]" (change)="updateValue(permissaoIndex, $event.target.value)"> 
+                  <option style = "background-color: #27293D;" value="GERENCIAR_USUARIO">Gerenciar Usuario</option>
+                  <option style = "background-color: #27293D;" value="GERENCIAR_VOO">Gerenciar Voo</option>
+                  <option style = "background-color: #27293D;" value="GERENCIAR_AEROPORTO">Gerenciar Aeroporto</option>
+                  <option style = "background-color: #27293D;" value="GERENCIAR_PARADA">Gerenciar Parada</option>
+                  <option style = "background-color: #27293D;" value="GERENCIAR_TIPO_PERFIL">Gerenciar Tipo perfil</option>
+                  <option style = "background-color: #27293D;" value="GERENCIAR_AERONAVE">Gerenciar Aeronave</option>
+                  <option style = "background-color: #27293D;" value="GERENCIAR_FABRICANTE">Gerenciar Fabricante</option>
+                  <option style = "background-color: #27293D;" value="GERENCIAR_LOCAL_CHECKIN">Gerenciar Local Checkin</option>
+                  <option style = "background-color: #27293D;" value="GERENCIAR_PRIMEIRO_CHECKIN">Gerenciar Primeiro Checkin</option>
+                  <option style = "background-color: #27293D;" value="GERENCIAR_SEGUNDO_CHECKIN">Gerenciar Segundo Checkin</option>
+                  <option style = "background-color: #27293D;" value="GERENCIAR_CHECKOUT">Gerenciar Checkout</option>
+                  <option style = "background-color: #27293D;" value="GERENCIAR_RESERVA">Gerenciar Reserva</option>
+                </select> 
+            </div>
+            <div class="col">
+              <button type="button" (click)="removerPermissao(permissaoIndex);" class=" close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+
+            </div>
+          </div>
+
+        </li>
+
+      </ul>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+  </form>
+
+</div>

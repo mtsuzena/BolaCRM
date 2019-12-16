@@ -30,26 +30,56 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long guidUsuario;
-	private String nome;
-	private String sobrenome;
-	private String login;
-	@Email(message = "Email inserido inválido")
-	private String email;
+	private String nome; // 
+	private String sobrenome; // 
+	private String usuario; // 
+	//@Email(message = "Email inserido inválido")
+	private String email; // 
 	private String senha;
+	private String endereco;
 	private String dataNasc;
 	private Long foto;
+	private String descricao;
 	
+	
+	
+	public String getDescricao() {
+		return descricao;
+	}
+
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
 	@ManyToOne
 	@JoinColumn(name = "guidTipoPerfil")
 	private TipoPerfil perfil;
 
-    @Enumerated(EnumType.STRING)
-	private TipoUsuario tipoDeUsuario;
+//    @Enumerated(EnumType.STRING)
+//	private TipoUsuario tipoDeUsuario;
+    
+    
+    
 	
-	public TipoUsuario getTipoDeUsuarios() {
-		return tipoDeUsuario;
+	public String getUsuario() {
+		return usuario;
 	}
 
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
+
+	public String getEndereco() {
+		return endereco;
+	}
+
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
 	
 	public String getSobrenome() {
 		return sobrenome;
@@ -58,26 +88,6 @@ public class Usuario {
 
 	public void setSobrenome(String sobrenome) {
 		this.sobrenome = sobrenome;
-	}
-
-
-	public String getLogin() {
-		return login;
-	}
-
-
-	public void setLogin(String login) {
-		this.login = login;
-	}
-
-
-	public TipoUsuario getTipoDeUsuario() {
-		return tipoDeUsuario;
-	}
-
-
-	public void setTipoDeUsuario(TipoUsuario tipoDeUsuario) {
-		this.tipoDeUsuario = tipoDeUsuario;
 	}
 
 
@@ -112,9 +122,6 @@ public class Usuario {
 		this.foto = foto;
 	}
 
-	public void setTipoDeUsuarios(TipoUsuario tipoDeUsuarios) {
-		this.tipoDeUsuario = tipoDeUsuarios;
-	}
 
 	public Long getGuidUsuario() {
 		return guidUsuario;

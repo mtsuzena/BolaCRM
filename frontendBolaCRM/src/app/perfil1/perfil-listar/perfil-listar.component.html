@@ -1,0 +1,19 @@
+<div class="content">
+  <h4>
+    Listar Perfis
+  </h4>
+
+  <table class="table table-striped">
+    <tr>
+      <th>ID</th>
+      <th>Descricao</th>
+      <th><button class="btn btn-primary" (click)="novo()">Novo</button></th>
+    </tr>
+    <tr *ngFor="let perfil of perfis">
+      <td>{{perfil.guidTipoPerfil}}</td>
+      <td>{{perfil.descricao}}</td>
+      <td><button class="btn btn-primary" (click)="edit(perfil)">Editar</button></td>
+    </tr>    
+  </table>
+
+</div>

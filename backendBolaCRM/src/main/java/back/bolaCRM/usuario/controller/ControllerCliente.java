@@ -30,7 +30,6 @@ public class ControllerCliente {
 			TipoPerfil tipoperfil = new TipoPerfil();
 		    List<Permissao> permissoes = new ArrayList<Permissao>();
 			permissoes.add(Permissao.ACESSO);
-			usuario.setTipoDeUsuarios(TipoUsuario.USUARIO);
 			tipoperfil.setGuidTipoPerfil((long) 2);
 			tipoperfil.setPermissoes(permissoes);
 			tipoperfil.setDescricao("Cliente");

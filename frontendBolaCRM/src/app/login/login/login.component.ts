@@ -1,4 +1,4 @@
-
+import { UsuarioService } from '../../usuario/model/usuario.service';
 import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -19,7 +19,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private usuarioService: UsuarioService
   ) { }
 
   ngOnInit() {
@@ -27,12 +28,22 @@ export class LoginComponent implements OnInit {
 
   logar(){
 
+    localStorage.setItem("usuario",this.usuario);
+    localStorage.setItem("senha",this.senha);
+
     this.authService.login(this.usuario,this.senha).subscribe(
       user => {
         console.log(user)
         localStorage.setItem("token",user['token']);
         localStorage.setItem("id",user['id']);
         this.authService.setUsuarioAutenticado(true);
+        
+        this.usuarioService.buscarPorID(localStorage.getItem("id")).subscribe(
+          usuario => {
+            localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
+          }
+        );
+
         this.loginEfetuado();
         this.router.navigate(['/dashboard']);
       }

@@ -35,7 +35,7 @@ public class UsuarioService {
 		TipoPerfil perfil = new TipoPerfil();
 		List<Permissao> permissoes = new ArrayList<Permissao>();
 		if(usuario.getGuidUsuario() == null) {
-			permissoes.add(Permissao.GERENCIAR_MURAL);
+			permissoes.add(Permissao.GERENCIAR_USUARIO);
 			perfil.setGuidTipoPerfil((long) 1);
 			perfil.setDescricao("ADMIN");
 			perfil.setPermissoes(permissoes);
@@ -43,7 +43,6 @@ public class UsuarioService {
         	System.out.println(senha);
         	usuario.setPerfil(perfil);
     		usuario.setSenha(senha);
-    		usuario.setTipoDeUsuarios(TipoUsuario.ADMIN);
     		emailU.sendMail("facearairlines@gmail.com", usuario.getEmail(), "Senha Facear Airlines", "Sua senha para acesso: "+usuario.getSenha() );
         }
 		usuarioRepository.save(usuario);
@@ -82,6 +81,7 @@ public class UsuarioService {
 	}
 
 	public Usuario buscarPorId(final Long guidUsuario) {
+		this.logger.gerarLog("Buscando usuario por ID: " + guidUsuario);
 		Usuario usuario = Optional.ofNullable(usuarioRepository.findById(guidUsuario).orElse(null))
 				.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR001));		
 		return usuario;

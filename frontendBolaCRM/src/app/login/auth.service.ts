@@ -16,14 +16,14 @@ export class AuthService {
  
   constructor(private http : HttpClient) { }
 
-  login(login: string, senha: string) : Observable<any> {
+  login(usuario: string, senha: string) : Observable<any> {
     let options = {
       headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
     };
 
     return this.http.post<any>
       ("http://localhost:8080/scp/public/login",
-        "login="+login+"&senha="+senha, 
+        "login="+usuario+"&senha="+senha, 
         options);
   }
 

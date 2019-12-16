@@ -1,3 +1,4 @@
+import { AuthService } from './../login/auth.service';
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
 
@@ -8,7 +9,14 @@ import * as Chartist from 'chartist';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  
+  constructor(
+    
+  ) {
+    
+    
+
+   }
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
       seq = 0;

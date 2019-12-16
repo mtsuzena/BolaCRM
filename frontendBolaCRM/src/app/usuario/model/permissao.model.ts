@@ -1,0 +1,5 @@
+export enum Permissao {
+	ACESSO,
+	GERENCIAR_USUARIO,
+	GERENCIAR_MURAL,
+}
