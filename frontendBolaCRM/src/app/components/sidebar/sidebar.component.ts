@@ -15,7 +15,6 @@ export const ROUTES: RouteInfo[] = [
     { path: '/icons', title: 'Gerenciar Mural',  icon:'bubble_chart', class: '' },
     { path: '/maps', title: 'Pastores',  icon:'location_on', class: '' },
     { path: '/usuario', title: 'Perfil Usuário',  icon:'person', class: '' },
-    { path: '/login', title: 'Login',  icon:'person', class: '' },
 ];
 
 @Component({
