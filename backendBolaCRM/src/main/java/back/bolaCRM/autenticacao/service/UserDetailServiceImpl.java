@@ -38,7 +38,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
 	private CustomUser getCustomUser(String userName) {
 
 		 CustomUser customUser = jdbcTemplate.
-		 queryForObject("select guid_usuario as id, email as login, senha from usuario where email=?",new
+		 queryForObject("select guid_usuario as id, usuario as login, senha from usuario where usuario=?",new
 		 Object[]{userName},new UserRowMapper());
 		 if(customUser != null){
 		 customUser = new CustomUser(customUser.getUsername(),new
