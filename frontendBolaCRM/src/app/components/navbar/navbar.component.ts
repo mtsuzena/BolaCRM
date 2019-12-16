@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { Router } from '@angular/router';
+import { Usuario } from 'app/usuario/model/usuario.model';
 
 @Component({
   selector: 'app-navbar',
@@ -123,6 +124,10 @@ export class NavbarComponent implements OnInit {
         else {
             title = 'Boa noite, ';
         }
+
+        var usuario: Usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
+
+        title = title + usuario.nome + '!';
         
         return title;
         
