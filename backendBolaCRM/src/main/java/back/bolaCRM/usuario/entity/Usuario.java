@@ -55,11 +55,6 @@ public class Usuario {
 	@ManyToOne
 	@JoinColumn(name = "guidTipoPerfil")
 	private TipoPerfil perfil;
-
-//    @Enumerated(EnumType.STRING)
-//	private TipoUsuario tipoDeUsuario;
-    
-    
     
 	
 	public String getUsuario() {
